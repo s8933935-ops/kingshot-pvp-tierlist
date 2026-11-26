@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>【キングショット】PvPジョイナー全世代最強Tier早見表 | ゴリポンチャンネル公式</title>
-  <meta name="description" content="キングショット(Kingshot)の集結(ラリー)合流枠(ジョイナー)における全27英雄Tier表・スキル倍率早見表。ゴードン・ファハド・エリック・チェンコ・アマネ・防衛枠ハワードから第7世代アヴァ・第8世代ルナまで網羅。重複可否判定＆4枠乗算シミュレーター完備！">
+  <meta name="description" content="キングショット(Kingshot)の集結(ラリー)合流枠(ジョイナー)における全27英雄Tier表・スキル倍率早見表。ゴードン・ファハド・エリック・チェンコ・アマネ・ハワードから第7世代アヴァ・第8世代ルナまで網羅。攻防デュアル評価＆4枠乗算シミュレーター完備！">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;900&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'M PLUS Rounded 1c', sans-serif; background: radial-gradient(circle at 50% 0%, #1a162b 0%, #0a0814 100%); color: #f1f5f9; min-height: 100vh; }
+    body { font-family: 'M PLUS Rounded 1c', system-ui, -apple-system, sans-serif; background: radial-gradient(circle at 50% 0%, #1a162b 0%, #0a0814 100%); color: #f1f5f9; min-height: 100vh; }
     .font-digit { font-family: 'Orbitron', monospace; }
     .rainbow-border {
       background: linear-gradient(90deg, #ff007a, #9600ff, #00d4ff, #00ff88, #ffbf00, #ff007a);
@@ -23,10 +23,30 @@
     .tier-a { background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(249, 115, 22, 0.15) 100%); border-color: #f97316; }
     .tier-b { background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%); border-color: #22c55e; }
     .tier-c { background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%); border-color: #3b82f6; }
-    .tier-def { background: linear-gradient(135deg, rgba(6, 182, 212, 0.18) 0%, rgba(56, 189, 248, 0.18) 100%); border-color: #06b6d4; }
+    [dir="rtl"] .rtl-flip-pad { padding-left: 0.75rem; padding-right: 2.25rem; }
+    [dir="rtl"] .rtl-search-icon { left: auto; right: 0.75rem; }
+    [dir="rtl"] .rtl-list { padding-left: 0; padding-right: 1.1rem; }
   </style>
+  <!-- 6-Language Localization Packs (CORS-free on both GitHub Pages and local file://) -->
+  <script src="i18n/ja.js"></script>
+  <script src="i18n/en.js"></script>
+  <script src="i18n/ko.js"></script>
+  <script src="i18n/zh-TW.js"></script>
+  <script src="i18n/ar.js"></script>
+  <script src="i18n/tr.js"></script>
 </head>
 <body class="p-3 md:p-6">
+  <!-- Language Switcher Bar -->
+  <nav class="max-w-6xl mx-auto mb-3 flex flex-wrap items-center justify-end gap-1.5" aria-label="Language switcher">
+    <span class="text-[11px] text-slate-400 mr-1 flex items-center gap-1"><i data-lucide="globe" class="w-3.5 h-3.5"></i></span>
+    <button onclick="setLang('ja')" id="btn-lang-ja" class="lang-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-yellow-500 text-slate-950 border border-yellow-400 transition">🇯🇵 日本語</button>
+    <button onclick="setLang('en')" id="btn-lang-en" class="lang-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:text-white transition">🇺🇸 EN</button>
+    <button onclick="setLang('ko')" id="btn-lang-ko" class="lang-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:text-white transition">🇰🇷 한국어</button>
+    <button onclick="setLang('zh-TW')" id="btn-lang-zh-TW" class="lang-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:text-white transition">🇹🇼 繁體中文</button>
+    <button onclick="setLang('ar')" id="btn-lang-ar" class="lang-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:text-white transition">🇸🇦 العربية</button>
+    <button onclick="setLang('tr')" id="btn-lang-tr" class="lang-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:text-white transition">🇹🇷 Türkçe</button>
+  </nav>
+
   <!-- Header Section -->
   <header class="max-w-6xl mx-auto mb-8">
     <div class="p-1 rounded-2xl rainbow-border shadow-2xl">
@@ -34,34 +54,34 @@
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none"></div>
 
         <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-          <div class="flex items-center gap-4 text-center md:text-left">
-            <div class="relative">
-              <img src="icons/goripon.jpg" alt="ゴリポン先生" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-yellow-400 object-cover shadow-lg gold-glow">
-              <span class="absolute -bottom-2 -right-1 bg-yellow-500 text-slate-950 text-xs font-black px-2 py-0.5 rounded-full shadow">先生</span>
+          <div class="flex items-center gap-4 text-center md:text-start">
+            <div class="relative flex-shrink-0">
+              <img src="icons/goripon.jpg" alt="Goripon" class="w-20 h-20 md:w-24 md:h-24 rounded-full border-2 border-yellow-400 object-cover shadow-lg gold-glow">
+              <span data-i18n="teacherBadge" class="absolute -bottom-2 -right-1 bg-yellow-500 text-slate-950 text-xs font-black px-2 py-0.5 rounded-full shadow">先生</span>
             </div>
             <div>
-              <div class="flex items-center gap-2 justify-center md:justify-start">
-                <span class="bg-red-600/80 text-white text-[10px] font-bold px-2 py-0.5 rounded border border-red-400">YouTube連動</span>
-                <span class="bg-purple-600/80 text-purple-200 text-[10px] font-bold px-2 py-0.5 rounded border border-purple-400">Gen1〜Gen8 全27英雄対応</span>
+              <div class="flex items-center gap-2 justify-center md:justify-start flex-wrap">
+                <span data-i18n="badgeYoutube" class="bg-red-600/80 text-white text-[10px] font-bold px-2 py-0.5 rounded border border-red-400">YouTube連動</span>
+                <span data-i18n="badgeGen" class="bg-purple-600/80 text-purple-200 text-[10px] font-bold px-2 py-0.5 rounded border border-purple-400">Gen1〜Gen8 全27英雄対応</span>
               </div>
-              <h1 class="text-2xl md:text-3xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-400 to-cyan-300 mt-1">
+              <h1 data-i18n="mainTitle" class="text-2xl md:text-3xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-400 to-cyan-300 mt-1">
                 キングショット PvPジョイナー最強Tier早見表
               </h1>
-              <p class="text-xs md:text-sm text-slate-300 mt-1">
+              <p data-i18n="mainSubtitle" class="text-xs md:text-sm text-slate-300 mt-1">
                 集結(ラリー)に乗せるだけで勝率激変！第1スキル基準・重複可否＆4枠乗算シミュレーター完備
               </p>
             </div>
           </div>
 
           <!-- YouTube CTA -->
-          <div class="flex flex-col sm:flex-row items-center gap-3">
+          <div class="flex flex-col sm:flex-row items-center gap-3 flex-shrink-0">
             <a href="https://www.youtube.com/@%E3%82%B4%E3%83%AA%E3%83%9D%E3%83%B3-x1t" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-red-600 hover:bg-red-500 text-white font-bold px-4 py-2.5 rounded-xl shadow-lg transition-all hover:scale-105">
               <i data-lucide="youtube" class="w-5 h-5"></i>
-              <span>ゴリポンCHを見る</span>
+              <span data-i18n="btnYoutube">ゴリポンCHを見る</span>
             </a>
             <button onclick="scrollToCalc()" class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-yellow-300 border border-yellow-500/40 font-bold px-4 py-2.5 rounded-xl transition-all">
               <i data-lucide="calculator" class="w-5 h-5"></i>
-              <span>乗算計算機へ</span>
+              <span data-i18n="btnToCalc">乗算計算機へ</span>
             </button>
           </div>
         </div>
@@ -69,17 +89,17 @@
         <!-- Navigator Banter Banner -->
         <div class="mt-5 pt-4 border-t border-slate-800/80 grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
           <div class="flex items-center gap-3 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
-            <img src="icons/rosa_host.jpg" alt="ローザ" class="w-10 h-10 rounded-full border border-pink-400 object-cover">
+            <img src="icons/rosa_host.jpg" alt="Rosa" class="w-10 h-10 rounded-full border border-pink-400 object-cover flex-shrink-0">
             <div>
-              <span class="font-bold text-pink-400">ローザ:</span>
-              <span class="text-slate-300">「ゴードンやファハド、チェンコやアマネなど初期SR英雄でも星4で100点満点の活躍ができるなんて夢があります！」</span>
+              <span data-i18n="hostRosaName" class="font-bold text-pink-400">ローザ:</span>
+              <span data-i18n="hostRosaLine" class="text-slate-300">「ゴードンやファハド、チェンコやアマネなど初期SR英雄でも星4で100点満点の活躍ができるなんて夢があります！」</span>
             </div>
           </div>
           <div class="flex items-center gap-3 bg-slate-900/60 p-2.5 rounded-xl border border-slate-800">
-            <img src="icons/petra_host.jpg" alt="ペーラ（ペトラ）" class="w-10 h-10 rounded-full border border-cyan-400 object-cover">
+            <img src="icons/petra_host.jpg" alt="Petra" class="w-10 h-10 rounded-full border border-cyan-400 object-cover flex-shrink-0">
             <div>
-              <span class="font-bold text-cyan-400">ペーラ（海外名：ペトラ）:</span>
-              <span class="text-slate-300">「異なる分類の乗算と、私の『邪眼』やエリック等の重複・競合リスクの交通整理が勝利の鍵ですよ。」</span>
+              <span data-i18n="hostPetraName" class="font-bold text-cyan-400">ペーラ（海外名：ペトラ）:</span>
+              <span data-i18n="hostPetraLine" class="text-slate-300">「異なる分類の乗算と、私の『邪眼』やエリック等の重複・競合リスクの交通整理が勝利の鍵ですよ。」</span>
             </div>
           </div>
         </div>
@@ -91,24 +111,24 @@
   <section class="max-w-6xl mx-auto mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
     <div class="bg-slate-900/80 border border-yellow-500/40 rounded-xl p-4 shadow">
       <div class="text-yellow-400 font-bold text-sm flex items-center justify-center gap-1">
-        <i data-lucide="sparkles" class="w-4 h-4"></i>【異種バフ×デバフの乗算】
+        <i data-lucide="sparkles" class="w-4 h-4"></i><span data-i18n="rule1Title">【異種バフ×デバフの乗算】</span>
       </div>
-      <div class="text-xl font-digit font-black text-yellow-300 mt-1">1.25(攻) × 1.25(殺) ＝ 56%UP</div>
-      <p class="text-xs text-slate-400 mt-1">同種加算でも強力ですが、別枠の攻撃・殺傷・敵デバフ・耐久を組み合わせると乗算で戦力が跳ね上がります！</p>
+      <div data-i18n="rule1Value" class="text-xl font-digit font-black text-yellow-300 mt-1">1.25(攻) × 1.25(殺) ＝ 56%UP</div>
+      <p data-i18n="rule1Desc" class="text-xs text-slate-400 mt-1">同種加算でも強力ですが、別枠の攻撃・殺傷・敵デバフ・耐久を組み合わせると乗算で戦力が跳ね上がります！</p>
     </div>
     <div class="bg-slate-900/80 border border-cyan-500/40 rounded-xl p-4 shadow">
       <div class="text-cyan-400 font-bold text-sm flex items-center justify-center gap-1">
-        <i data-lucide="shield" class="w-4 h-4"></i>【星4で最大スキル・反映3要素】
+        <i data-lucide="shield" class="w-4 h-4"></i><span data-i18n="rule2Title">【星4で最大スキル・反映3要素】</span>
       </div>
-      <div class="text-xl font-digit font-black text-cyan-300 mt-1">ゴードン / ファハド / チェンコ</div>
-      <p class="text-xs text-slate-400 mt-1">乗り手で反映されるのは「左英雄の第1遠征スキル（Lv5で最大）」「兵士レベル」「兵士数」の3点！初期SR星4で即戦力！</p>
+      <div data-i18n="rule2Value" class="text-xl font-digit font-black text-cyan-300 mt-1">ゴードン / ファハド / チェンコ</div>
+      <p data-i18n="rule2Desc" class="text-xs text-slate-400 mt-1">乗り手で反映されるのは「左英雄の第1遠征スキル（Lv5で最大）」「兵士レベル」「兵士数」の3点！初期SR星4で即戦力！</p>
     </div>
     <div class="bg-slate-900/80 border border-red-500/40 rounded-xl p-4 shadow">
       <div class="text-red-400 font-bold text-sm flex items-center justify-center gap-1">
-        <i data-lucide="alert-triangle" class="w-4 h-4"></i>【重複・競合＆低確率罠に注意】
+        <i data-lucide="alert-triangle" class="w-4 h-4"></i><span data-i18n="rule3Title">【重複・競合＆低確率罠に注意】</span>
       </div>
-      <div class="text-xl font-digit font-black text-red-400 mt-1">ペーラ・エリック重複注意 ／ ゾーイ低確率</div>
-      <p class="text-xs text-slate-400 mt-1">重複しないとの実戦報告が多い枠は1人限定で交通整理！ペーラ主導時の乗り手ペーラ・ヴィヴィアン競合にも要注意！</p>
+      <div data-i18n="rule3Value" class="text-xl font-digit font-black text-red-400 mt-1">ペーラ・エリック重複注意 ／ ゾーイ低確率</div>
+      <p data-i18n="rule3Desc" class="text-xs text-slate-400 mt-1">重複しないとの実戦報告が多い枠は1人限定で交通整理！ペーラ主導時の乗り手ペーラ・ヴィヴィアン競合にも要注意！</p>
     </div>
   </section>
 
@@ -116,39 +136,39 @@
   <section class="max-w-6xl mx-auto mb-6 space-y-3">
     <!-- Attack / Defense Mode Toggle -->
     <div class="bg-slate-900/95 border border-slate-700/80 rounded-2xl p-3 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-xl">
-      <div class="flex items-center gap-2">
-        <span class="text-xs font-black text-slate-300">表示・診断モード切替:</span>
+      <div class="flex items-center gap-2 flex-wrap justify-center">
+        <span data-i18n="modeLabel" class="text-xs font-black text-slate-300">表示・診断モード切替:</span>
         <div class="inline-flex rounded-xl bg-slate-950 p-1 border border-slate-800">
-          <button onclick="setMode('attack')" id="btn-mode-attack" class="mode-btn px-4 py-1.5 rounded-lg text-xs font-black bg-gradient-to-r from-orange-500 to-red-500 text-white shadow transition">⚔️ 攻撃集結モード（攻め）</button>
-          <button onclick="setMode('defense')" id="btn-mode-defense" class="mode-btn px-4 py-1.5 rounded-lg text-xs font-black text-slate-400 hover:text-white transition">🛡️ 駐屯防衛モード（守り）</button>
+          <button onclick="setMode('attack')" id="btn-mode-attack" data-i18n="btnModeAttack" class="mode-btn px-4 py-1.5 rounded-lg text-xs font-black bg-gradient-to-r from-orange-500 to-red-500 text-white shadow transition">⚔️ 攻撃集結モード（攻め）</button>
+          <button onclick="setMode('defense')" id="btn-mode-defense" data-i18n="btnModeDefense" class="mode-btn px-4 py-1.5 rounded-lg text-xs font-black text-slate-400 hover:text-white transition">🛡️ 駐屯防衛モード（守り）</button>
         </div>
       </div>
       <p id="modeHintText" class="text-[11px] text-slate-400">
-        現在：<strong class="text-orange-300">攻撃集結基準</strong>でTier表示・4枠診断中（各カードに攻防デュアルランクを常時表示）
+        現在：<strong class="text-orange-300">攻撃集結基準（攻め）</strong>でTier表示・4枠診断中（各カードに攻防デュアルランクを常時表示）
       </p>
     </div>
 
     <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4 shadow-xl">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="text-xs font-bold text-slate-400 mr-1">Tier:</span>
-        <button onclick="setTierFilter('ALL')" id="btn-tier-ALL" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-700 text-white border border-slate-600 transition">ALL</button>
-        <button onclick="setTierFilter('S')" id="btn-tier-S" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-yellow-400 border border-yellow-500/40 hover:bg-yellow-500/20 transition">🌈 S Tier (必須神)</button>
-        <button onclick="setTierFilter('A')" id="btn-tier-A" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-orange-400 border border-orange-500/40 hover:bg-orange-500/20 transition">🔥 A Tier (準主役)</button>
-        <button onclick="setTierFilter('B')" id="btn-tier-B" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/20 transition">🌿 B Tier (職人・サブ)</button>
-        <button onclick="setTierFilter('C')" id="btn-tier-C" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-blue-400 border border-blue-500/40 hover:bg-blue-500/20 transition">⚠️ C Tier (非推奨・罠)</button>
+        <span data-i18n="tierLabel" class="text-xs font-bold text-slate-400 mr-1">Tier:</span>
+        <button onclick="setTierFilter('ALL')" id="btn-tier-ALL" data-i18n="tierAll" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-700 text-white border border-slate-600 transition">ALL</button>
+        <button onclick="setTierFilter('S')" id="btn-tier-S" data-i18n="tierS" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-yellow-400 border border-yellow-500/40 hover:bg-yellow-500/20 transition">🌈 S Tier (必須神)</button>
+        <button onclick="setTierFilter('A')" id="btn-tier-A" data-i18n="tierA" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-orange-400 border border-orange-500/40 hover:bg-orange-500/20 transition">🔥 A Tier (準主役)</button>
+        <button onclick="setTierFilter('B')" id="btn-tier-B" data-i18n="tierB" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/20 transition">🌿 B Tier (職人・サブ)</button>
+        <button onclick="setTierFilter('C')" id="btn-tier-C" data-i18n="tierC" class="tier-btn px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-800 text-blue-400 border border-blue-500/40 hover:bg-blue-500/20 transition">⚠️ C Tier (非推奨・罠)</button>
       </div>
 
-      <div class="flex items-center gap-2">
-        <span class="text-xs font-bold text-slate-400 mr-1">兵種:</span>
-        <button onclick="setTroopFilter('ALL')" id="btn-troop-ALL" class="troop-btn px-2.5 py-1 rounded text-xs font-bold bg-slate-700 text-white">ALL</button>
-        <button onclick="setTroopFilter('infantry')" id="btn-troop-infantry" class="troop-btn px-2.5 py-1 rounded text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">🛡️ 歩兵</button>
-        <button onclick="setTroopFilter('cavalry')" id="btn-troop-cavalry" class="troop-btn px-2.5 py-1 rounded text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">🐎 騎兵</button>
-        <button onclick="setTroopFilter('archer')" id="btn-troop-archer" class="troop-btn px-2.5 py-1 rounded text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">🏹 弓兵</button>
+      <div class="flex items-center gap-2 flex-wrap">
+        <span data-i18n="troopLabel" class="text-xs font-bold text-slate-400 mr-1">兵種:</span>
+        <button onclick="setTroopFilter('ALL')" id="btn-troop-ALL" data-i18n="troopAll" class="troop-btn px-2.5 py-1 rounded text-xs font-bold bg-slate-700 text-white">ALL</button>
+        <button onclick="setTroopFilter('infantry')" id="btn-troop-infantry" data-i18n="troopInfantry" class="troop-btn px-2.5 py-1 rounded text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">🛡️ 歩兵</button>
+        <button onclick="setTroopFilter('cavalry')" id="btn-troop-cavalry" data-i18n="troopCavalry" class="troop-btn px-2.5 py-1 rounded text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">🐎 騎兵</button>
+        <button onclick="setTroopFilter('archer')" id="btn-troop-archer" data-i18n="troopArcher" class="troop-btn px-2.5 py-1 rounded text-xs font-bold bg-slate-800 text-slate-300 hover:text-white">🏹 弓兵</button>
       </div>
 
       <div class="relative w-full md:w-56">
-        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-slate-400"></i>
-        <input type="text" id="searchInput" oninput="handleSearch()" placeholder="英雄名で検索..." class="w-full bg-slate-950 border border-slate-700 rounded-xl pl-9 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-yellow-400">
+        <i data-lucide="search" class="w-4 h-4 absolute left-3 top-2.5 text-slate-400 rtl-search-icon"></i>
+        <input type="text" id="searchInput" oninput="handleSearch()" data-i18n-placeholder="searchPlaceholder" placeholder="英雄名で検索..." class="w-full bg-slate-950 border border-slate-700 rounded-xl pl-9 pr-3 py-1.5 text-xs text-white focus:outline-none focus:border-yellow-400 rtl-flip-pad">
       </div>
     </div>
   </section>
@@ -163,22 +183,22 @@
     <div class="bg-slate-900/95 border border-purple-500/40 rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div class="flex items-center gap-3">
-          <div class="p-3 bg-purple-600/20 rounded-xl border border-purple-400">
+          <div class="p-3 bg-purple-600/20 rounded-xl border border-purple-400 flex-shrink-0">
             <i data-lucide="swords" class="w-6 h-6 text-purple-400"></i>
           </div>
           <div>
-            <h2 class="text-xl md:text-2xl font-black text-white">4人合流（ラリージョイナー）編成チェッカー</h2>
-            <p class="text-xs md:text-sm text-slate-400">全27英雄対応！攻撃・殺傷・デバフ・耐久の多軸乗算と重複・競合リスクを即時診断！</p>
+            <h2 data-i18n="calcTitle" class="text-xl md:text-2xl font-black text-white">4人合流（ラリージョイナー）編成チェッカー</h2>
+            <p data-i18n="calcSubtitle" class="text-xs md:text-sm text-slate-400">全27英雄対応！攻撃・殺傷・デバフ・耐久の多軸乗算と重複・競合リスクを即時診断！</p>
           </div>
         </div>
 
         <!-- Quick Presets -->
         <div class="flex flex-wrap gap-2">
-          <button onclick="applyPreset(['gordon','fahd','eric','chenko'], 'attack')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-300 border border-yellow-500/40 transition">🏆 動画推奨4枠 (攻)</button>
-          <button onclick="applyPreset(['chenko','amane','ava','petra'], 'attack')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 transition">🔥 火力乗算特化 (攻)</button>
-          <button onclick="applyPreset(['gordon','fahd','chenko','amane'], 'attack')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 transition">🛡️ 無課金SR4枠 (攻)</button>
-          <button onclick="applyPreset(['gordon','howard','eric','fahd'], 'defense')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 transition">🏰 駐屯防衛4枠 (守)</button>
-          <button onclick="applyPreset(['gordon','gordon','gordon','howard'], 'defense')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 transition">🧱 3ゴードン+ハワード (守)</button>
+          <button onclick="applyPreset(['gordon','fahd','eric','chenko'], 'attack')" data-i18n="presetVideo" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-300 border border-yellow-500/40 transition">🏆 動画推奨4枠 (攻)</button>
+          <button onclick="applyPreset(['chenko','amane','ava','petra'], 'attack')" data-i18n="presetOffense" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 transition">🔥 火力乗算特化 (攻)</button>
+          <button onclick="applyPreset(['gordon','fahd','chenko','amane'], 'attack')" data-i18n="presetF2p" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 transition">🛡️ 無課金SR4枠 (攻)</button>
+          <button onclick="applyPreset(['gordon','howard','eric','fahd'], 'defense')" data-i18n="presetDefense" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 border border-sky-500/40 transition">🏰 駐屯防衛4枠 (守)</button>
+          <button onclick="applyPreset(['gordon','gordon','gordon','howard'], 'defense')" data-i18n="preset3Gordon" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 transition">🧱 3ゴードン+ハワード (守)</button>
         </div>
       </div>
 
@@ -186,29 +206,29 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
           <label class="text-xs text-yellow-400 font-bold block mb-2 flex items-center justify-between">
-            <span>【合流枠 1】</span>
-            <span class="text-[10px] text-slate-500 font-normal">全英雄選択可</span>
+            <span id="slotLabel1">【合流枠 1】</span>
+            <span data-i18n="slotAnyHero" class="text-[10px] text-slate-500 font-normal">全英雄選択可</span>
           </label>
           <select id="slot1" onchange="calculateRally()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white font-bold focus:border-yellow-400 focus:outline-none"></select>
         </div>
         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
           <label class="text-xs text-cyan-400 font-bold block mb-2 flex items-center justify-between">
-            <span>【合流枠 2】</span>
-            <span class="text-[10px] text-slate-500 font-normal">全英雄選択可</span>
+            <span id="slotLabel2">【合流枠 2】</span>
+            <span data-i18n="slotAnyHero" class="text-[10px] text-slate-500 font-normal">全英雄選択可</span>
           </label>
           <select id="slot2" onchange="calculateRally()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white font-bold focus:border-cyan-400 focus:outline-none"></select>
         </div>
         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
           <label class="text-xs text-orange-400 font-bold block mb-2 flex items-center justify-between">
-            <span>【合流枠 3】</span>
-            <span class="text-[10px] text-slate-500 font-normal">全英雄選択可</span>
+            <span id="slotLabel3">【合流枠 3】</span>
+            <span data-i18n="slotAnyHero" class="text-[10px] text-slate-500 font-normal">全英雄選択可</span>
           </label>
           <select id="slot3" onchange="calculateRally()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white font-bold focus:border-orange-400 focus:outline-none"></select>
         </div>
         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
           <label class="text-xs text-emerald-400 font-bold block mb-2 flex items-center justify-between">
-            <span>【合流枠 4】</span>
-            <span class="text-[10px] text-slate-500 font-normal">全英雄選択可</span>
+            <span id="slotLabel4">【合流枠 4】</span>
+            <span data-i18n="slotAnyHero" class="text-[10px] text-slate-500 font-normal">全英雄選択可</span>
           </label>
           <select id="slot4" onchange="calculateRally()" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-xs text-white font-bold focus:border-emerald-400 focus:outline-none"></select>
         </div>
@@ -218,8 +238,8 @@
       <div id="rallyResultCard" class="bg-slate-950/80 border border-yellow-500/40 rounded-xl p-5 flex flex-col md:flex-row items-center justify-between gap-4">
         <div>
           <div class="flex flex-wrap items-center gap-2">
-            <span id="rallyScoreBadge" class="bg-yellow-500 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded shadow">診断中...</span>
-            <span class="text-xs text-slate-400">推定総合実効スコア倍率（火力×耐久・デバフ換算）:</span>
+            <span id="rallyScoreBadge" class="bg-yellow-500 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded shadow">...</span>
+            <span data-i18n="scoreLabel" class="text-xs text-slate-400">推定総合実効スコア倍率（火力×耐久・デバフ換算）:</span>
           </div>
           <div class="text-2xl md:text-3xl font-digit font-black text-yellow-300 mt-1" id="rallyMultiplierText">--</div>
           <div id="rallyBreakdownText" class="text-[11px] text-slate-400 mt-1 font-mono"></div>
@@ -227,7 +247,7 @@
         </div>
         <div class="text-right flex-shrink-0">
           <button onclick="calculateRally()" class="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs flex items-center gap-1 shadow">
-            <i data-lucide="refresh-cw" class="w-4 h-4"></i> 再計算
+            <i data-lucide="refresh-cw" class="w-4 h-4"></i> <span data-i18n="btnRecalc">再計算</span>
           </button>
         </div>
       </div>
@@ -236,10 +256,8 @@
       <div class="mt-5 p-4 bg-slate-950/90 border border-yellow-500/30 rounded-xl text-xs text-slate-300 flex items-start gap-3 shadow-inner">
         <i data-lucide="alert-circle" class="w-5 h-5 text-yellow-400 flex-shrink-0 mt-0.5"></i>
         <div class="leading-relaxed">
-          <span class="font-bold text-yellow-400">【計算機およびTier表に関するご注意・免責事項（2026年11月時点）】</span><br>
-          ※ 「推定総合実効スコア倍率」は、火力系倍率×耐久・敵弱体倍率で算出した<strong>本サイト独自の比較目安指標</strong>であり、実ダメージや生存時間そのものではありません。<br>
-          ※ ファハド（敵与ダメ減）・エリック（敵攻撃減）・チャールズ（敵殺傷減）は内部計算で同軸に作用する可能性があり、独立乗算換算は理論上の目安値です。また、ゴードンの重複上限・逓減やハワードの重複可否など公式非公開の仕様は要実機確認となります。<br>
-          ※ 2026年11月時点のアップデートにより、集結主によるジョイナー並び替え（ピン留め）や左1枠目空欄運用などが確認されています。仕様変更や各プレイヤーの研究・領主装備・兵種比率により<strong>最適解は変動する可能性がございます</strong>。
+          <span data-i18n="disclaimerTitle" class="font-bold text-yellow-400">【計算機およびTier表に関するご注意・免責事項（2026年11月時点）】</span>
+          <div id="disclaimerBody" class="mt-1 space-y-1"></div>
         </div>
       </div>
     </div>
@@ -248,117 +266,88 @@
   <!-- Tactical Deep-Dive Supplement Section -->
   <section id="tacticalGuide" class="max-w-6xl mx-auto mb-16">
     <div class="flex items-center gap-3 mb-5">
-      <div class="p-2.5 bg-cyan-600/20 rounded-xl border border-cyan-400">
+      <div class="p-2.5 bg-cyan-600/20 rounded-xl border border-cyan-400 flex-shrink-0">
         <i data-lucide="book-open" class="w-5 h-5 text-cyan-300"></i>
       </div>
       <div>
-        <h2 class="text-xl md:text-2xl font-black text-white">実戦攻略ガイド（重要補足・2026年11月検証反映）</h2>
-        <p class="text-xs md:text-sm text-slate-400">動画公開後のコメント検証・海外コミュニティ実戦報告をもとにした重要注意点まとめ</p>
+        <h2 data-i18n="guideTitle" class="text-xl md:text-2xl font-black text-white">実戦攻略ガイド（重要補足・2026年11月検証反映）</h2>
+        <p data-i18n="guideSubtitle" class="text-xs md:text-sm text-slate-400">動画公開後のコメント検証・海外コミュニティ実戦報告をもとにした重要注意点まとめ</p>
       </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-      <!-- Card A: Petra Duplicate & Vivian Conflict -->
+      <!-- Card A -->
       <article class="bg-slate-900/90 border border-red-500/40 rounded-2xl p-5 shadow-xl flex flex-col gap-3">
         <div class="flex items-center gap-2 text-red-400 font-black text-sm">
           <i data-lucide="flame" class="w-4 h-4 flex-shrink-0"></i>
-          <span>① ペーラ（海外名：ペトラ）の重複・競合リスク</span>
+          <span data-i18n="guide1Title">① ペーラ（海外名：ペトラ）の重複・競合リスク</span>
         </div>
-        <ul class="text-xs text-slate-300 space-y-2.5 leading-relaxed list-disc pl-4">
-          <li><strong>日本語版表記は「ペーラ」</strong>（動画内・海外表記は「ペトラ / Petra」）。</li>
-          <li><strong>リーダーがペーラの集結に乗り手ペーラは非推奨</strong>：敵被ダメージ+50%は重複加算されない（+100%にならない）との実戦検証報告が多数。3兵種独立判定が働く前提の理論上限ではリーダー単体でも毎ターン3回判定（発動率87.5%／期待値+43.75%、判定仕様によっては+25%級 ※要実機確認）となるため、乗り手のペーラは貴重な4枠を浪費しやすい。</li>
-          <li><strong>ペーラ主導時のヴィヴィアン競合に注意</strong>：海外コミュニティ（Reddit r/KingShot等）の実戦検証では、ペーラ主導の集結に同系統の「敵被ダメージ増加」を持つ<strong>ヴィヴィアン（+25%）</strong>を乗せると、効果干渉・上書きによりダメージが大きく落ちる報告が多数（※公式の内部計算は非公開）。</li>
-          <li><strong>安全策</strong>：ペーラ主導ラリーには、チェンコ・インウー・アマネ・マーゴ等の<strong>攻撃・殺傷系の確定バフ</strong>で組むのが安定。</li>
-        </ul>
+        <ul id="guide1List" class="text-xs text-slate-300 space-y-2.5 leading-relaxed list-disc pl-4 rtl-list"></ul>
       </article>
 
-      <!-- Card B: Garrison Defense 4-Slot & 4 Premises -->
+      <!-- Card B -->
       <article class="bg-slate-900/90 border border-cyan-500/40 rounded-2xl p-5 shadow-xl flex flex-col gap-3">
         <div class="flex items-center gap-2 text-cyan-300 font-black text-sm">
           <i data-lucide="shield-check" class="w-4 h-4 flex-shrink-0"></i>
-          <span>② 駐屯防衛（守り）の4枠仕様と3大前提＋兵種比率</span>
+          <span data-i18n="guide2Title">② 駐屯防衛（守り）の4枠仕様と3大前提＋兵種比率</span>
         </div>
-        <p class="text-xs text-slate-300 leading-relaxed">
-          4枠ルール自体は攻防共通で、システム上は両方で発動します。<strong>エリック・ファハド</strong>等は攻防両用ですが、チェンコ・インウー・アマネ等の火力枠は基本攻め向け。防衛では<strong>ゴードン（HP+25%）</strong>や<strong>ハワード（被ダメ-20%）</strong>等の耐久系へ差し替えるのが定石です（※海外定石「3ゴードン＋1ハワード」も人気ですが、ゴードンのスタック上限・逓減やハワードの重複可否は公式未公表・要実機確認のためハワードは基本1人運用推奨）。
-        </p>
-        <ol class="text-xs text-slate-300 space-y-2 leading-relaxed list-decimal pl-4">
-          <li><strong>最高ステの自動適用（定説）</strong>：並び順（駐屯隊長）に関係なく駐屯内で一番ステータスが高い人の基礎ステータスが自動適用されるとされる（※適用範囲や隊長交代・4枠超過時の優先順位など細部は要実機確認）。</li>
-          <li><strong>攻防スキルの発動条件分離</strong>：英雄スキル（専用装備等）は「集結攻撃用」と「駐屯防衛用」で発動条件が分かれている。</li>
-          <li><strong>奪取直後の入れ替え必須</strong>：集結奪取直後は攻撃編成のままなので、反撃を受ける前に防衛用編成へ入れ替える。</li>
-          <li><strong>兵種比率の推奨例（世代・環境依存）</strong>：敵騎兵の貫通対策で歩兵厚め＆弓控えめが基本。汎用 <strong>6:2:2</strong>、第4世代以降の王城・要塞戦では <strong>6:4:0</strong> や <strong>7:3:0</strong> 等の構成も採用される。</li>
-        </ol>
+        <p id="guide2Intro" class="text-xs text-slate-300 leading-relaxed"></p>
+        <ol id="guide2List" class="text-xs text-slate-300 space-y-2 leading-relaxed list-decimal pl-4 rtl-list"></ol>
       </article>
 
-      <!-- Card C: Joiner 3 Factors & Latest Update -->
+      <!-- Card C -->
       <article class="bg-slate-900/90 border border-yellow-500/40 rounded-2xl p-5 shadow-xl flex flex-col gap-3">
         <div class="flex items-center gap-2 text-yellow-300 font-black text-sm">
           <i data-lucide="sliders" class="w-4 h-4 flex-shrink-0"></i>
-          <span>③ ジョイナー反映3要素＆最新アプデ仕様</span>
+          <span data-i18n="guide3Title">③ ジョイナー反映3要素＆最新アプデ仕様</span>
         </div>
-        <ul class="text-xs text-slate-300 space-y-2.5 leading-relaxed list-disc pl-4">
-          <li><strong>乗り手で反映される主な3要素</strong>：①<strong>左英雄の第1遠征スキル</strong>（Lv5で最大）、②<strong>兵士レベル（ティア／真金TG）</strong>、③<strong>兵士数（兵種比率）</strong>。個人装備・研究等は基本的に集結主側のステータスが基準とされる（※細部の例外は要実機確認）。</li>
-          <li><strong>上矢印（ピン留め）で並び替え可能</strong>：2026年11月時点のアップデート・コミュニティ検証報告では、集結主がジョイナーを「上矢印（ピン留め）」で優先順を並び替え可能になり、4枠の交通整理がしやすくなっている。</li>
-          <li><strong>左1枠目空欄テクニック</strong>：「左1枠目を空欄にして2・3枠目に英雄を配置し、スキル枠を汚さず兵数上限だけ盛る」運用も確認されている。</li>
-          <li><strong>適正英雄がいない時の判断</strong>：基本は<strong>「英雄なし／左1枠目空欄」</strong>が安全。ただし4枠確保済みかつ集結主の並び替え前提であれば、兵数上限盛り目的で他英雄入りも成立する。</li>
-        </ul>
+        <ul id="guide3List" class="text-xs text-slate-300 space-y-2.5 leading-relaxed list-disc pl-4 rtl-list"></ul>
       </article>
     </div>
   </section>
 
   <footer class="max-w-6xl mx-auto border-t border-slate-800 pt-8 pb-16 text-center text-xs text-slate-500">
     <div class="flex items-center justify-center gap-2 mb-3">
-      <img src="icons/goripon.jpg" alt="ゴリポン" class="w-6 h-6 rounded-full border border-yellow-500/40">
-      <span class="text-slate-300 font-bold">ゴリポンチャンネル公式 PvP攻略データベース</span>
+      <img src="icons/goripon.jpg" alt="Goripon" class="w-6 h-6 rounded-full border border-yellow-500/40">
+      <span data-i18n="footerBrand" class="text-slate-300 font-bold">ゴリポンチャンネル公式 PvP攻略データベース</span>
     </div>
-    <p>本データは海外コミュニティの検証シミュレーションおよび公開知見に基づき作成されています（重複可否・内部計算式など公式非公開項目を含みます）。</p>
-    <p class="mt-1 text-slate-400">※ 各プレイヤーのバフ・装備状況やアップデートにより最適な英雄は変動する場合があります。</p>
+    <p data-i18n="footerLine1">本データは海外コミュニティの検証シミュレーションおよび公開知見に基づき作成されています（重複可否・内部計算式など公式非公開項目を含みます）。</p>
+    <p data-i18n="footerLine2" class="mt-1 text-slate-400">※ 各プレイヤーのバフ・装備状況やアップデートにより最適な英雄は変動する場合があります。</p>
     <p class="mt-2">© 2026 ゴリポンチャンネル All Rights Reserved.</p>
   </footer>
 
   <script>
-    const heroesData = [
-      // S (Attack) & S (Defense)
-      { id: 'gordon', name: 'ゴードン', origName: 'Gordon', attackTier: 'S', defenseTier: 'S', gen: 'SR (紫)', troop: 'cavalry', troopName: '騎兵', icon: 'icons/gordon.png', badge: 'HP25%・攻防両用核', skillName: '野戦厨房 (部隊HP25%確定UP)', value: 'HP +25.0% 確定', category: 'durability', desc: '動画でも筆頭紹介のSR騎兵！味方全員の体力を確定25%底上げし、攻撃集結・駐屯防衛ともに生存率を引き上げる攻防両用の王道枠。海外コミュニティでは重複運用（3ゴードン等）が定番だが、公式のスタック上限・逓減有無は未確認。', defenseNote: '駐屯防衛の王道S枠。HP+25%は確定効果で星4から即戦力。' },
-      { id: 'fahd', name: 'ファハド', origName: 'Fahd', attackTier: 'S', defenseTier: 'S', gen: 'SR (紫)', troop: 'cavalry', troopName: '騎兵', icon: 'icons/fahd.png', badge: '敵与ダメ20%減・攻防両用', skillName: '砂漠の強襲 (敵与ダメ20%減)', value: '希少乗算デバフ', category: 'debuff', desc: '敵部隊の与ダメージを20%カットする希少デバフ枠。攻防両用で味方バフと別枠に作用するため初期英雄ながら推奨4枠の一角（※重複しないとの実戦報告が多数・公式未公表のため1人運用推奨）。', defenseNote: '防衛S枠。敵集結の火力を直接20%削ぐため被損軽減に直結（1人運用推奨）。' },
-      { id: 'eric', name: 'エリック', origName: 'Eric', attackTier: 'S', defenseTier: 'S', gen: 'Gen 3', troop: 'infantry', troopName: '歩兵', icon: 'icons/eric.png', badge: '敵攻撃20%減・攻防両用', skillName: '聖なる戦士 (敵攻撃力20%低下)', value: '希少乗算デバフ', category: 'debuff', desc: '敵部隊の攻撃力を20%削ぎ落とす超優秀デバフ枠。攻撃・駐屯防衛問わず他バフと被りにくいため推奨4枠の常連（※重複しないとの実戦報告が多数・公式未公表のため1人運用推奨）。', defenseNote: '防衛S枠。高世代でも腐らない最強クラスの敵弱体デバフ（1人運用推奨）。' },
-      { id: 'triton', name: 'トリトン', origName: 'Triton', attackTier: 'S', defenseTier: 'S', gen: 'Gen 6', troop: 'infantry', troopName: '歩兵', icon: 'icons/triton.png', badge: '防御25%確定・攻防両用', skillName: '力の号令 (防御25%確定UP)', value: '防御 +25.0% 確定', category: 'durability', desc: '希少な「全部隊防御25%確定UP」。他英雄のHP・被ダメ減バフと被らず別枠乗算で耐久を底上げする第6世代の要（※重複しないとの実戦報告が多数・1人運用推奨）。', defenseNote: '防衛S枠。ゴードン(HP)・ハワード(被ダメ減)と別軸で乗算する防御25%枠。' },
+    const supportedLangs = ['ja', 'en', 'ko', 'zh-TW', 'ar', 'tr'];
 
-      // S (Attack) & B (Defense)
-      { id: 'chenko', name: 'チェンコ', origName: 'Chenko', attackTier: 'S', defenseTier: 'B', gen: 'SR (紫)', troop: 'cavalry', troopName: '騎兵', icon: 'icons/chenko.png', badge: '殺傷25%・攻撃無課金神', skillName: '突進援護 (殺傷力25%確定UP)', value: '殺傷 +25.0% 確定', category: 'lethality', desc: '誰でも完凸できるSR騎兵ながら「殺傷力25%常時確定」！アマネ等の攻撃UPと組むと別枠乗算で威力を跳ね上げる攻撃集結の金字塔。被っても加算スタック有効！', defenseNote: '防衛B枠。反撃キル増には効くが、防衛では耐久・敵弱体枠が最優先。' },
-      { id: 'yeonwoo', name: 'インウー', origName: 'Yeonwoo', attackTier: 'S', defenseTier: 'B', gen: 'SR (紫)', troop: 'archer', troopName: '弓兵', icon: 'icons/yeonwoo.png', badge: '殺傷25%・攻撃無課金神', skillName: '護身 (殺傷力25%確定UP)', value: '殺傷 +25.0% 確定', category: 'lethality', desc: '熊狩りでもおなじみの殺傷力確定25%！チェンコ同様、育てやすく攻撃集結で最強クラスの仕事をする超優秀ジョイナー。被っても加算スタック有効！', defenseNote: '防衛B枠。反撃キル増には寄与するが、防衛4枠では耐久系を優先。' },
-      { id: 'amane', name: 'アマネ', origName: 'Amane', attackTier: 'S', defenseTier: 'B', gen: 'SR (紫)', troop: 'archer', troopName: '弓兵', icon: 'icons/amane.png', badge: '攻撃25%・攻撃無課金神', skillName: '三方陣 (攻撃力25%確定UP)', value: '攻撃 +25.0% 確定', category: 'attack', desc: 'SRながら「全部隊の攻撃力25%常時確定UP」を持つ無課金・微課金の最高峰！チェンコやインウーの殺傷25%と組むと1.25×1.25＝約56%の完全乗算が成立！', defenseNote: '防衛B枠。反撃火力は上がるが生存力に直結しないため防衛では耐久枠優先。' },
-      { id: 'margot', name: 'マーゴ', origName: 'Margot', attackTier: 'S', defenseTier: 'B', gen: 'Gen 4', troop: 'cavalry', troopName: '騎兵', icon: 'icons/margot.png', badge: '攻撃25%確定', skillName: '戦火の導き (攻撃力25%確定UP)', value: '攻撃 +25.0% 確定', category: 'attack', desc: '第4世代レジェンド騎兵。運要素ゼロの全部隊攻撃25%確定バフ。殺傷25%枠と組むことで綺麗な乗算火力を生み出し、ペーラ主導ラリーの安全枠としても優秀！', defenseNote: '防衛B枠。純火力寄りのため駐屯防衛では耐久系・敵弱体枠に譲る。' },
-      { id: 'ava', name: 'アヴァ', origName: 'Ava', attackTier: 'S', defenseTier: 'B', gen: 'Gen 7', troop: 'cavalry', troopName: '騎兵', icon: 'icons/ava.png', badge: 'Gen7厳選・敵防御25%減', skillName: '溶解 (敵部隊防御25%低下)', value: '固有乗算デバフ', category: 'amp', desc: '動画（Lot 7）で厳選紹介した第7世代騎兵！敵全部隊の防御力を25%削る固有の乗算デバフを持ち、攻撃集結のジョイナー適性が極めて高い（※重複しないとの実戦報告が多数・1人運用推奨）。', defenseNote: '防衛B枠。敵防御低下は反撃火力向けで味方耐久には非寄与のため防衛はB。' },
-      { id: 'luna', name: 'ルナ', origName: 'Luna', attackTier: 'S', defenseTier: 'B', gen: 'Gen 8', troop: 'archer', troopName: '弓兵', icon: 'icons/luna.png', badge: 'Gen8厳選・攻撃25%確定', skillName: '導きの光 (攻撃力25%確定UP)', value: '攻撃 +25.0% 確定', category: 'attack', desc: '動画（Lot 7）で厳選紹介した第8世代弓兵！全部隊の攻撃力を確定25%強化する純粋バフ持ち。殺傷枠・デバフ枠と掛け合わせて最新世代でも即戦力。', defenseNote: '防衛B枠。無条件攻撃25%は強力だが駐屯防衛では耐久・軽減枠を優先。' },
-
-      // A (Attack) & S (Defense)
-      { id: 'howard', name: 'ハワード', origName: 'Howard', attackTier: 'A', defenseTier: 'S', gen: 'SR (紫)', troop: 'infantry', troopName: '歩兵', icon: 'icons/howard.png', badge: '防衛必須S・攻撃A（被ダメ20%減）', skillName: "Defenders' Edge (Lv5: 全部隊被ダメ20%軽減)", value: '被ダメ -20.0% 確定', category: 'debuff', desc: '駐屯防衛（守り）で必須級のSR歩兵！海外データサイト（二次情報）準拠でLv5時に全部隊の被ダメージを20%軽減。攻撃集結でも別枠乗算で兵損削減に効くが、火力枠・動画推奨4枠に譲るため攻撃A／防衛S評価（※ハワード自身のスタック可否は公式未公表・要実機確認のため基本1人運用推奨）。', defenseNote: '防衛S枠。無課金SR星4で全部隊被ダメ-20%の王道軽減枠（基本1人運用推奨）。' },
-      { id: 'charles', name: 'チャールズ', origName: 'Charles', attackTier: 'A', defenseTier: 'S', gen: 'Gen 7', troop: 'infantry', troopName: '歩兵', icon: 'icons/charles.png', badge: '防衛S・敵殺傷20%減', skillName: '威圧 (敵部隊殺傷力20%低下)', value: '希少乗算デバフ', category: 'debuff', desc: '敵部隊の殺傷力を20%削ぐ希少デバフ持ち。駐屯防衛では高世代の要となるS評価。攻撃集結でも強力だがGen7で入手難度が高くリーダー枠と被りやすいため実運用A評価（※重複しないとの実戦報告が多数・1人運用推奨）。', defenseNote: '防衛S枠。敵殺傷力を直接20%削ぐ高世代防衛の中核デバフ（1人運用推奨）。' },
-
-      // A (Attack) & A (Defense)
-      { id: 'saul', name: 'サウル', origName: 'Saul', attackTier: 'A', defenseTier: 'A', gen: 'Gen 1', troop: 'archer', troopName: '弓兵', icon: 'icons/saul.png', badge: '耐久分割バフ（動画表記訂正済）', skillName: '特務訓練 (Lv5: 全部隊 防御10% + 体力15%)', value: '防+10% / HP+15%', category: 'durability', desc: '第1世代レジェンド弓兵。1枠で全部隊の防御+10%と体力+15%（Lv5時・海外Wiki等準拠）を同時供給する耐久分割スキル持ち。防衛・長期戦ラリーの安定枠として優秀。※動画本編では「攻撃15%＋殺傷10%」と紹介していますが、正しくは防御+10%＆体力+15%の耐久バフです。', defenseNote: '防衛A枠。防御+10%とHP+15%の2系統耐久を1枠で安定供給。' },
-      { id: 'hilde', name: 'ヒルダ', origName: 'Hilde', attackTier: 'A', defenseTier: 'A', gen: 'Gen 2', troop: 'cavalry', troopName: '騎兵', icon: 'icons/hilde.png', badge: '攻防分割バフ', skillName: '高潔なる道 (攻撃15% + 防御10%)', value: '攻+15% / 防+10%', category: 'split_ad', desc: '第2世代レジェンド騎兵。全部隊の攻撃+15%と防御+10%を1枠で両立する攻防バランス型の分割スキル。幅広い集結リーダー・駐屯防衛に合わせやすい万能A枠。', defenseNote: '防衛A枠。防御+10%で耐えつつ攻撃+15%で反撃火力も底上げ。' },
-
-      // A (Attack, Solo Only) & C (Defense)
-      { id: 'petra', name: 'ペーラ（ペトラ）', origName: 'Petra', attackTier: 'A', defenseTier: 'C', gen: 'Gen 3', troop: 'cavalry', troopName: '騎兵', icon: 'icons/petra.png', badge: '単独採用時A・リーダー重複＆ヴィヴィアン競合注意', skillName: '邪眼 (50%確率で敵被ダメ50%増)', value: '期待値 +25〜44% (不発リスク有)', category: 'amp', desc: '日本語版表記は「ペーラ」（動画内・海外名「ペトラ」）。ヴィヴィアン非同席・単独採用時の攻撃A評価。3兵種独立判定の理論上限で発動率87.5%（期待値+43.75%、判定仕様により+25%級 ※要実機確認）。重複加算しないとの実戦報告が多く、リーダーがペーラの集結に乗り手ペーラを重ねると4枠の無駄になりやすい。また海外コミュニティ（Reddit等）の実戦検証ではヴィヴィアンとの干渉・ダメージ低下が多数報告（公式未公表）されており、ペーラ主導時は攻撃・殺傷系の確定バフ推奨。', defenseNote: '防衛C枠。確率依存かつ耐久非寄与＋競合リスクのため駐屯防衛には不向き。' },
-      { id: 'vivian', name: 'ヴィヴィアン', origName: 'Vivian', attackTier: 'A', defenseTier: 'C', gen: 'Gen 5', troop: 'archer', troopName: '弓兵', icon: 'icons/vivian.png', badge: '単独採用時A・ペーラ競合注意', skillName: '伏虎の構え (敵被ダメ増・最大25%)', value: 'PvP実質+20〜25%', category: 'amp', desc: '敵の被ダメージを最大25%増やす独立乗算デバフ（ペーラ非同席・単独採用時の攻撃A評価）。ただし海外コミュニティ（Reddit r/KingShot等）の実戦検証報告では、ペーラ（海外名：ペトラ）主導ラリーや同席時に同系統デバフが干渉・上書きされてダメージが大きく落ちる事例が多数報告されている（※公式の内部計算は非公開、重複しないとの報告も多数）。ペーラ主導時は攻撃・殺傷系の確定バフへ差し替えるのが安全。', defenseNote: '防衛C枠。攻撃寄りデバフで味方耐久に寄与せず競合リスクもあるため防衛不適。' },
-
-      // B (Attack) & B/C (Defense)
-      { id: 'jaeger', name: 'イェーガー', origName: 'Jaeger', attackTier: 'B', defenseTier: 'B', gen: 'Gen 3', troop: 'archer', troopName: '弓兵', icon: 'icons/jaeger.png', badge: '防衛寄り・暫定B（詳細数値要確認）', skillName: '祝典の備え (耐久・支援系 ※詳細要確認)', value: '耐久支援 (暫定評価)', category: 'durability', desc: '第3世代レジェンド弓兵。アリーナや拠点防衛寄りの耐久支援スキルを持つが、第1遠征スキルの詳細数値・対象範囲が要実機確認のため攻防ともに暫定B評価。', defenseNote: '防衛暫定B枠。防衛適性はあるが詳細数値要確認のため確定耐久勢の下に位置づけ。' },
-      { id: 'rosa', name: 'ローザ', origName: 'Rosa', attackTier: 'B', defenseTier: 'C', gen: 'Gen 4', troop: 'archer', troopName: '弓兵', icon: 'icons/rosa.png', badge: '例外スタック報告有・確率枠', skillName: 'カオスギャンビット (40%確率で与ダメ50%増)', value: '期待値 +20.0% (不発リスク有)', category: 'amp', desc: '自軍与ダメ増の確率スキル（40%確率で+50%／期待値20%・不発リスクあり）。敵デバフ枠のペーラ/ヴィヴィアンと異なり自軍バフ枠で、例外的に複数人でも効果重複が報告されているため攻撃の穴埋め枠として有用。', defenseNote: '防衛C枠。確率不安定かつ耐久非寄与のため駐屯防衛では非推奨。' },
-      { id: 'thrud', name: 'スルーズ', origName: 'Thrud', attackTier: 'B', defenseTier: 'C', gen: 'Gen 5', troop: 'cavalry', troopName: '騎兵', icon: 'icons/thrud.png', badge: '攻撃特化向け・防衛不適', skillName: '戦乙女の誓い (条件付き強化)', value: '変則特化型', category: 'amp', desc: '一般的な均等編成では扱いにくいが、兵種比率を極端に寄せた攻撃特化ラリー編成では高い実効値を叩き出す上級者向けの職人枠（※重複非推奨・1人運用推奨）。', defenseNote: '防衛C枠。海外ガイドでも防衛ジョイナー不適と明記される攻撃特化枠。' },
-      { id: 'yang', name: 'ヤン', origName: 'Yang', attackTier: 'B', defenseTier: 'C', gen: 'Gen 6', troop: 'archer', troopName: '弓兵', icon: 'icons/yang.png', badge: '4T毎の追加打撃', skillName: '雪崩撃 (4ターン毎に全部隊追加攻撃)', value: '周期火力枠', category: 'amp', desc: '4ターンごとに追加打撃を発生させる変則火力枠。確定バフが揃った後のシナジー要員・長期戦のダメージ上乗せとして機能（※重複非推奨・1人運用推奨）。', defenseNote: '防衛C枠。遅効かつ耐久非寄与のため駐屯防衛ジョイナーには不向き。' },
-      { id: 'quinn', name: 'クイン', origName: 'Quinn', attackTier: 'B', defenseTier: 'C', gen: 'SR (紫)', troop: 'archer', troopName: '弓兵', icon: 'icons/quinn.png', badge: '序盤攻撃サブ枠', skillName: '精密射撃 (攻撃支援)', value: '序盤穴埋め', category: 'attack_minor', desc: '序盤の手持ちが少ない時期の弓兵サブ要員。チェンコ・アマネ・ゴードン・ファハド・ハワードの星4が揃い次第入れ替え推奨。', defenseNote: '防衛C枠。序盤SRならゴードン・ハワード・ファハドに完全劣後。' },
-
-      // C (Attack) & B (Defense, Provisional)
-      { id: 'alcar', name: 'アルカー', origName: 'Alcar', attackTier: 'C', defenseTier: 'B', gen: 'Gen 4', troop: 'infantry', troopName: '歩兵', icon: 'icons/alcar.png', badge: '⚠️ 開幕5T不発・歩弓限定', skillName: '救いの手 (5T毎に2T・歩弓限定被ダメ70%減)', value: '歩弓限定・騎兵非対象', category: 'trap', desc: '5ターン周期の発動で戦闘開幕に仕事ができず、効果対象も「歩兵・弓兵限定（騎兵非対象）」。攻撃集結では開幕無力になりやすくC評価だが、長期防衛で発動した際の70%軽減は大きいため防衛は暫定B評価。', defenseNote: '防衛暫定B枠。歩弓限定（騎兵非対象）＆開幕5T不発リスクあり。' },
-      { id: 'long-fei', name: 'ロン・フェイ', origName: 'Long Fei', attackTier: 'C', defenseTier: 'B', gen: 'Gen 5', troop: 'infantry', troopName: '歩兵', icon: 'icons/long-fei.png', badge: '⚠️ リーダー向け・防衛暫定B', skillName: '防衛・耐久系スキル (詳細数値要実機確認)', value: '攻撃不適 / 防衛暫定B', category: 'trap', desc: '本人は強力な第5世代歩兵だが、リーダー運用・防衛向け。攻撃集結の合流枠では確定火力・デバフ枠を潰すためC（暫定）。防衛ジョイナーでも確定耐久S勢（ゴードン/ハワード/エリック/チャールズ）に一歩譲る暫定B評価（※詳細要実機確認）。', defenseNote: '防衛暫定B枠。防衛寄りだが確定耐久S勢が優先（※詳細数値要確認）。' },
-      { id: 'sophia', name: 'ソフィア', origName: 'Sophia', attackTier: 'C', defenseTier: 'B', gen: 'Gen 6', troop: 'cavalry', troopName: '騎兵', icon: 'icons/sophia.png', badge: '⚠️ 駐屯向け・防衛暫定B', skillName: '防衛・騎兵支援系スキル (詳細数値要実機確認)', value: '攻撃不適 / 防衛暫定B', category: 'trap', desc: '第6世代騎兵として防衛・リーダー運用で輝く一方、攻撃集結のジョイナーとしては明確な乗算枠に劣るためC（暫定）。防衛ジョイナーでも全部隊確定枠に譲るため暫定B評価（※詳細要実機確認）。', defenseNote: '防衛暫定B枠。駐屯寄りだが全部隊確定耐久S勢が優先（※詳細数値要確認）。' },
-
-      // C (Attack) & C (Defense)
-      { id: 'zoe', name: 'ゾーイ', origName: 'Zoe', attackTier: 'C', defenseTier: 'C', gen: 'Gen 2', troop: 'infantry', troopName: '歩兵', icon: 'icons/zoe.png', badge: '⚠️ 低確率・重複注意の罠', skillName: '裂傷 (20%確率で40%継続ダメ/3T)', value: '低確率・不安定', category: 'trap', desc: '動画（Lot 4）でも注意喚起！第1スキルが低確率発動かつ重複しにくいため、複数人が送ると貴重な4枠を潰す典型的なジョイナー不適格枠。攻防ともにC評価。', defenseNote: '防衛C枠。低確率かつ耐久非寄与で攻防ともにジョイナー不適。' },
-      { id: 'jabel', name: 'ジェイブル', origName: 'Jabel', attackTier: 'C', defenseTier: 'C', gen: 'Gen 1', troop: 'cavalry', troopName: '騎兵', icon: 'icons/jabel.png', badge: '⚠️ 確率被ダメ減の罠', skillName: '確率被ダメ軽減 (合流不適)', value: '確率不安定', category: 'trap', desc: '第1世代レジェンド騎兵。序盤のアリーナ等では活躍するが、第1遠征スキルが確率不安定な軽減のため、確定軽減のハワード・ゴードン・ファハドに劣り攻防ともにC評価。', defenseNote: '防衛C枠。確率不安定のため確定SR勢（ハワード/ゴードン/ファハド）を優先。' },
-      { id: 'helga', name: 'ヘルガ', origName: 'Helga', attackTier: 'C', defenseTier: 'C', gen: 'Gen 1', troop: 'infantry', troopName: '歩兵', icon: 'icons/helga.png', badge: '⚠️ 個人戦・確率罠', skillName: '確率被ダメ軽減 (合流不適)', value: '確率不安定', category: 'trap', desc: '第1世代レジェンド歩兵。個人戦特化かつ確率不安定な軽減のためジョイナーには不向き。初期SRのゴードン・ハワード・ファハド・チェンコを優先すべき。', defenseNote: '防衛C枠。個人戦寄り＆確率不安定のため確定SR耐久勢を優先。' }
+    // Language-independent hero metadata (localized texts come from window.TIERLIST_I18N[lang].heroes)
+    const heroesMeta = [
+      { id: 'gordon', origName: 'Gordon', attackTier: 'S', defenseTier: 'S', gen: 'SR (紫)', troop: 'cavalry', icon: 'icons/gordon.png', category: 'durability' },
+      { id: 'fahd', origName: 'Fahd', attackTier: 'S', defenseTier: 'S', gen: 'SR (紫)', troop: 'cavalry', icon: 'icons/fahd.png', category: 'debuff' },
+      { id: 'eric', origName: 'Eric', attackTier: 'S', defenseTier: 'S', gen: 'Gen 3', troop: 'infantry', icon: 'icons/eric.png', category: 'debuff' },
+      { id: 'triton', origName: 'Triton', attackTier: 'S', defenseTier: 'S', gen: 'Gen 6', troop: 'infantry', icon: 'icons/triton.png', category: 'durability' },
+      { id: 'chenko', origName: 'Chenko', attackTier: 'S', defenseTier: 'B', gen: 'SR (紫)', troop: 'cavalry', icon: 'icons/chenko.png', category: 'lethality' },
+      { id: 'yeonwoo', origName: 'Yeonwoo', attackTier: 'S', defenseTier: 'B', gen: 'SR (紫)', troop: 'archer', icon: 'icons/yeonwoo.png', category: 'lethality' },
+      { id: 'amane', origName: 'Amane', attackTier: 'S', defenseTier: 'B', gen: 'SR (紫)', troop: 'archer', icon: 'icons/amane.png', category: 'attack' },
+      { id: 'margot', origName: 'Margot', attackTier: 'S', defenseTier: 'B', gen: 'Gen 4', troop: 'cavalry', icon: 'icons/margot.png', category: 'attack' },
+      { id: 'ava', origName: 'Ava', attackTier: 'S', defenseTier: 'B', gen: 'Gen 7', troop: 'cavalry', icon: 'icons/ava.png', category: 'amp' },
+      { id: 'luna', origName: 'Luna', attackTier: 'S', defenseTier: 'B', gen: 'Gen 8', troop: 'archer', icon: 'icons/luna.png', category: 'attack' },
+      { id: 'howard', origName: 'Howard', attackTier: 'A', defenseTier: 'S', gen: 'SR (紫)', troop: 'infantry', icon: 'icons/howard.png', category: 'debuff' },
+      { id: 'charles', origName: 'Charles', attackTier: 'A', defenseTier: 'S', gen: 'Gen 7', troop: 'infantry', icon: 'icons/charles.png', category: 'debuff' },
+      { id: 'saul', origName: 'Saul', attackTier: 'A', defenseTier: 'A', gen: 'Gen 1', troop: 'archer', icon: 'icons/saul.png', category: 'durability' },
+      { id: 'hilde', origName: 'Hilde', attackTier: 'A', defenseTier: 'A', gen: 'Gen 2', troop: 'cavalry', icon: 'icons/hilde.png', category: 'split_ad' },
+      { id: 'petra', origName: 'Petra', attackTier: 'A', defenseTier: 'C', gen: 'Gen 3', troop: 'cavalry', icon: 'icons/petra.png', category: 'amp' },
+      { id: 'vivian', origName: 'Vivian', attackTier: 'A', defenseTier: 'C', gen: 'Gen 5', troop: 'archer', icon: 'icons/vivian.png', category: 'amp' },
+      { id: 'jaeger', origName: 'Jaeger', attackTier: 'B', defenseTier: 'B', gen: 'Gen 3', troop: 'archer', icon: 'icons/jaeger.png', category: 'durability' },
+      { id: 'rosa', origName: 'Rosa', attackTier: 'B', defenseTier: 'C', gen: 'Gen 4', troop: 'archer', icon: 'icons/rosa.png', category: 'amp' },
+      { id: 'thrud', origName: 'Thrud', attackTier: 'B', defenseTier: 'C', gen: 'Gen 5', troop: 'cavalry', icon: 'icons/thrud.png', category: 'amp' },
+      { id: 'yang', origName: 'Yang', attackTier: 'B', defenseTier: 'C', gen: 'Gen 6', troop: 'archer', icon: 'icons/yang.png', category: 'amp' },
+      { id: 'quinn', origName: 'Quinn', attackTier: 'B', defenseTier: 'C', gen: 'SR (紫)', troop: 'archer', icon: 'icons/quinn.png', category: 'attack_minor' },
+      { id: 'alcar', origName: 'Alcar', attackTier: 'C', defenseTier: 'B', gen: 'Gen 4', troop: 'infantry', icon: 'icons/alcar.png', category: 'trap' },
+      { id: 'long-fei', origName: 'Long Fei', attackTier: 'C', defenseTier: 'B', gen: 'Gen 5', troop: 'infantry', icon: 'icons/long-fei.png', category: 'trap' },
+      { id: 'sophia', origName: 'Sophia', attackTier: 'C', defenseTier: 'B', gen: 'Gen 6', troop: 'cavalry', icon: 'icons/sophia.png', category: 'trap' },
+      { id: 'zoe', origName: 'Zoe', attackTier: 'C', defenseTier: 'C', gen: 'Gen 2', troop: 'infantry', icon: 'icons/zoe.png', category: 'trap' },
+      { id: 'jabel', origName: 'Jabel', attackTier: 'C', defenseTier: 'C', gen: 'Gen 1', troop: 'cavalry', icon: 'icons/jabel.png', category: 'trap' },
+      { id: 'helga', origName: 'Helga', attackTier: 'C', defenseTier: 'C', gen: 'Gen 1', troop: 'infantry', icon: 'icons/helga.png', category: 'trap' }
     ];
 
     // 重複加算しないとの実戦報告が多い英雄・基本1人運用推奨枠（計算機上は1体分のみ計上）
@@ -371,11 +360,40 @@
     // 確率発動スキルを持つ英雄（期待値目安・不発リスクあり注記対象）
     const probabilisticHeroes = ['petra', 'rosa', 'zoe'];
 
+    let currentLang = 'ja';
     let currentMode = 'attack'; // 'attack' | 'defense'
     let currentTier = 'ALL';
     let currentTroop = 'ALL';
     let currentSearch = '';
     const tierOrder = { S: 0, A: 1, B: 2, C: 3 };
+
+    function getDict(lang) {
+      const store = (typeof window !== 'undefined' && window.TIERLIST_I18N) ? window.TIERLIST_I18N : {};
+      return store[lang || currentLang] || store.ja;
+    }
+
+    function fmt(template, vars) {
+      return String(template || '').replace(/\{(\w+)\}/g, (_, k) => (vars && vars[k] !== undefined ? vars[k] : ''));
+    }
+
+    function getHeroView(meta) {
+      const d = getDict();
+      const jaD = getDict('ja');
+      const loc = (d && d.heroes && d.heroes[meta.id]) || (jaD && jaD.heroes && jaD.heroes[meta.id]) || {};
+      const genDisplay = meta.gen === 'SR (紫)' && currentLang !== 'ja' ? 'Epic (SR)' : meta.gen;
+      return {
+        ...meta,
+        genDisplay,
+        troopName: (d && d.troops && d.troops[meta.troop]) || meta.troop,
+        name: loc.name || meta.origName,
+        jaName: (jaD && jaD.heroes && jaD.heroes[meta.id] && jaD.heroes[meta.id].name) || meta.origName,
+        badge: loc.badge || '',
+        skillName: loc.skillName || '',
+        value: loc.value || '',
+        desc: loc.desc || '',
+        defenseNote: loc.defenseNote || ''
+      };
+    }
 
     function getActiveTier(h) {
       return currentMode === 'defense' ? h.defenseTier : h.attackTier;
@@ -388,19 +406,112 @@
         : 'bg-blue-500/20 text-blue-300 border-blue-500/40';
     }
 
+    function detectInitialLang() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const q = params.get('lang');
+        if (q && supportedLangs.includes(q)) return q;
+      } catch (_) {}
+      try {
+        const saved = window.localStorage && window.localStorage.getItem('kingshot_tierlist_lang');
+        if (saved && supportedLangs.includes(saved)) return saved;
+      } catch (_) {}
+      try {
+        const nav = (navigator.language || '').toLowerCase();
+        if (nav.startsWith('ja')) return 'ja';
+        if (nav.startsWith('ko')) return 'ko';
+        if (nav.startsWith('zh')) return 'zh-TW';
+        if (nav.startsWith('ar')) return 'ar';
+        if (nav.startsWith('tr')) return 'tr';
+        if (nav.startsWith('en')) return 'en';
+      } catch (_) {}
+      return 'ja';
+    }
+
+    function applyStaticTranslations() {
+      const d = getDict();
+      if (!d) return;
+      document.documentElement.lang = currentLang;
+      document.documentElement.dir = d.dir || 'ltr';
+      if (d.meta && d.meta.title) document.title = d.meta.title;
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc && d.meta && d.meta.description) metaDesc.setAttribute('content', d.meta.description);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (d.ui && d.ui[key] !== undefined) el.textContent = d.ui[key];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (d.ui && d.ui[key] !== undefined) el.placeholder = d.ui[key];
+      });
+
+      [1, 2, 3, 4].forEach(n => {
+        const el = document.getElementById(`slotLabel${n}`);
+        if (el) el.textContent = `${d.ui.slotLabelPrefix}${n}${d.ui.slotLabelSuffix}`;
+      });
+
+      const disc = document.getElementById('disclaimerBody');
+      if (disc && Array.isArray(d.ui.disclaimerLines)) {
+        disc.innerHTML = d.ui.disclaimerLines.map(line => `<p>${line}</p>`).join('');
+      }
+      const g1 = document.getElementById('guide1List');
+      if (g1 && Array.isArray(d.ui.guide1Items)) {
+        g1.innerHTML = d.ui.guide1Items.map(item => `<li>${item}</li>`).join('');
+      }
+      const g2i = document.getElementById('guide2Intro');
+      if (g2i && d.ui.guide2Intro) g2i.innerHTML = d.ui.guide2Intro;
+      const g2 = document.getElementById('guide2List');
+      if (g2 && Array.isArray(d.ui.guide2Items)) {
+        g2.innerHTML = d.ui.guide2Items.map(item => `<li>${item}</li>`).join('');
+      }
+      const g3 = document.getElementById('guide3List');
+      if (g3 && Array.isArray(d.ui.guide3Items)) {
+        g3.innerHTML = d.ui.guide3Items.map(item => `<li>${item}</li>`).join('');
+      }
+
+      supportedLangs.forEach(code => {
+        const btn = document.getElementById(`btn-lang-${code}`);
+        if (!btn) return;
+        if (code === currentLang) {
+          btn.className = 'lang-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-yellow-500 text-slate-950 border border-yellow-400 shadow transition';
+        } else {
+          btn.className = 'lang-btn px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-900 text-slate-300 border border-slate-700 hover:text-white transition';
+        }
+      });
+    }
+
+    function setLang(lang) {
+      if (!supportedLangs.includes(lang)) lang = 'ja';
+      currentLang = lang;
+      try {
+        if (window.localStorage) window.localStorage.setItem('kingshot_tierlist_lang', lang);
+      } catch (_) {}
+      try {
+        if (window.history && window.history.replaceState && window.location && window.location.protocol !== 'file:') {
+          const url = new URL(window.location.href);
+          url.searchParams.set('lang', lang);
+          window.history.replaceState({}, '', url.toString());
+        }
+      } catch (_) {}
+      applyStaticTranslations();
+      setMode(currentMode);
+    }
+
     function setMode(mode) {
       currentMode = mode;
+      const d = getDict();
       const atkBtn = document.getElementById('btn-mode-attack');
       const defBtn = document.getElementById('btn-mode-defense');
       const hint = document.getElementById('modeHintText');
       if (mode === 'defense') {
         atkBtn.className = 'mode-btn px-4 py-1.5 rounded-lg text-xs font-black text-slate-400 hover:text-white transition';
         defBtn.className = 'mode-btn px-4 py-1.5 rounded-lg text-xs font-black bg-gradient-to-r from-cyan-500 to-sky-600 text-slate-950 shadow transition';
-        if (hint) hint.innerHTML = '現在：<strong class="text-cyan-300">駐屯防衛基準（守り）</strong>でTier表示・4枠診断中（耐久・敵火力弱体を最優先評価）';
+        if (hint && d) hint.innerHTML = d.ui.modeHintDefense;
       } else {
         atkBtn.className = 'mode-btn px-4 py-1.5 rounded-lg text-xs font-black bg-gradient-to-r from-orange-500 to-red-500 text-white shadow transition';
         defBtn.className = 'mode-btn px-4 py-1.5 rounded-lg text-xs font-black text-slate-400 hover:text-white transition';
-        if (hint) hint.innerHTML = '現在：<strong class="text-orange-300">攻撃集結基準（攻め）</strong>でTier表示・4枠診断中（各カードに攻防デュアルランクを常時表示）';
+        if (hint && d) hint.innerHTML = d.ui.modeHintAttack;
       }
       const prevSlots = ['slot1', 'slot2', 'slot3', 'slot4'].map(id => document.getElementById(id).value);
       renderHeroes();
@@ -410,20 +521,23 @@
 
     function renderHeroes() {
       const container = document.getElementById('heroesContainer');
+      const d = getDict();
       container.innerHTML = '';
 
-      const filtered = heroesData.filter(h => {
+      const q = currentSearch.trim().toLowerCase();
+      const filtered = heroesMeta.map(getHeroView).filter(h => {
         const activeTier = getActiveTier(h);
         const matchTier = currentTier === 'ALL' || activeTier === currentTier;
         const matchTroop = currentTroop === 'ALL' || h.troop === currentTroop;
-        const matchSearch = currentSearch === '' ||
-          h.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
-          h.origName.toLowerCase().includes(currentSearch.toLowerCase());
+        const matchSearch = q === '' ||
+          h.name.toLowerCase().includes(q) ||
+          h.origName.toLowerCase().includes(q) ||
+          h.jaName.toLowerCase().includes(q);
         return matchTier && matchTroop && matchSearch;
       }).sort((a, b) => (tierOrder[getActiveTier(a)] ?? 9) - (tierOrder[getActiveTier(b)] ?? 9));
 
       if (filtered.length === 0) {
-        container.innerHTML = '<div class="col-span-full text-center py-12 text-slate-500 font-bold">該当する英雄が見つかりませんでした。</div>';
+        container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-500 font-bold">${d.ui.noHeroesFound}</div>`;
         return;
       }
 
@@ -432,7 +546,10 @@
         const tierClass = activeTier === 'S' ? 'tier-s' : activeTier === 'A' ? 'tier-a' : activeTier === 'B' ? 'tier-b' : 'tier-c';
         const tierBadgeColor = activeTier === 'S' ? 'bg-yellow-500 text-slate-950' : activeTier === 'A' ? 'bg-orange-500 text-white' : activeTier === 'B' ? 'bg-emerald-500 text-slate-950' : 'bg-blue-600 text-white';
         const modeNoteHtml = currentMode === 'defense' && h.defenseNote
-          ? `<div class="mt-2 px-2.5 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-500/30 text-[11px] text-cyan-200"><strong class="text-cyan-300">🛡️ 防衛評価:</strong> ${h.defenseNote}</div>`
+          ? `<div class="mt-2 px-2.5 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-500/30 text-[11px] text-cyan-200"><strong class="text-cyan-300">${d.ui.cardDefenseNoteLabel}</strong> ${h.defenseNote}</div>`
+          : '';
+        const origSub = h.name.toLowerCase() !== h.origName.toLowerCase()
+          ? ` <span class="text-xs text-slate-400 font-normal">(${h.origName})</span>`
           : '';
 
         const card = document.createElement('div');
@@ -445,12 +562,12 @@
             </div>
             <div class="flex-1 min-w-0">
               <div class="flex items-center justify-between gap-1">
-                <h3 class="text-base font-black text-white truncate">${h.name} <span class="text-xs text-slate-400 font-normal">(${h.origName})</span></h3>
-                <span class="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700 flex-shrink-0">${h.gen}</span>
+                <h3 class="text-base font-black text-white truncate">${h.name}${origSub}</h3>
+                <span class="text-[10px] text-slate-400 bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700 flex-shrink-0">${h.genDisplay}</span>
               </div>
               <div class="flex flex-wrap items-center gap-1.5 mt-1">
-                <span class="text-[10px] font-black px-1.5 py-0.5 rounded border ${tierMiniColor(h.attackTier)}">⚔️攻:${h.attackTier}</span>
-                <span class="text-[10px] font-black px-1.5 py-0.5 rounded border ${tierMiniColor(h.defenseTier)}">🛡️防:${h.defenseTier}</span>
+                <span class="text-[10px] font-black px-1.5 py-0.5 rounded border ${tierMiniColor(h.attackTier)}">${d.ui.badgeAtkPrefix}${h.attackTier}</span>
+                <span class="text-[10px] font-black px-1.5 py-0.5 rounded border ${tierMiniColor(h.defenseTier)}">${d.ui.badgeDefPrefix}${h.defenseTier}</span>
                 <span class="text-[10px] bg-slate-800 text-slate-300 px-1.5 py-0.5 rounded">${h.troopName}</span>
                 <span class="text-[10px] bg-yellow-500/20 text-yellow-300 px-1.5 py-0.5 rounded border border-yellow-500/30 font-bold">${h.badge}</span>
               </div>
@@ -466,7 +583,7 @@
         `;
         container.appendChild(card);
       });
-      lucide.createIcons();
+      if (typeof lucide !== 'undefined') lucide.createIcons();
     }
 
     function setTierFilter(tier) {
@@ -475,7 +592,8 @@
         btn.classList.remove('bg-slate-700', 'text-white');
         btn.classList.add('bg-slate-800');
       });
-      document.getElementById(`btn-tier-${tier}`).classList.add('bg-slate-700', 'text-white');
+      const activeBtn = document.getElementById(`btn-tier-${tier}`);
+      if (activeBtn) activeBtn.classList.add('bg-slate-700', 'text-white');
       renderHeroes();
     }
 
@@ -485,7 +603,8 @@
         btn.classList.remove('bg-slate-700', 'text-white');
         btn.classList.add('bg-slate-800');
       });
-      document.getElementById(`btn-troop-${troop}`).classList.add('bg-slate-700', 'text-white');
+      const activeBtn = document.getElementById(`btn-troop-${troop}`);
+      if (activeBtn) activeBtn.classList.add('bg-slate-700', 'text-white');
       renderHeroes();
     }
 
@@ -510,18 +629,19 @@
 
     function populateSlots(preserveValues) {
       const slotIds = ['slot1', 'slot2', 'slot3', 'slot4'];
-      // 動画(Lot 8)推奨4枠テンプレをデフォルトに設定
+      const d = getDict();
       const defaultValues = (preserveValues && preserveValues.every(Boolean))
         ? preserveValues
         : ['gordon', 'fahd', 'eric', 'chenko'];
 
-      const modeLabel = currentMode === 'defense' ? '防衛' : '攻撃';
+      const modeLabel = currentMode === 'defense' ? d.calc.modeDefenseLabel : d.calc.modeAttackLabel;
       const tierGroups = [
-        { tier: 'S', label: `🌈 ${modeLabel} S Tier (必須神枠)` },
-        { tier: 'A', label: `🔥 ${modeLabel} A Tier (準主役)` },
-        { tier: 'B', label: `🌿 ${modeLabel} B Tier (職人・サブ)` },
-        { tier: 'C', label: `⚠️ ${modeLabel} C Tier (非推奨・罠)` }
+        { tier: 'S', label: fmt(d.calc.groupS, { mode: modeLabel }) },
+        { tier: 'A', label: fmt(d.calc.groupA, { mode: modeLabel }) },
+        { tier: 'B', label: fmt(d.calc.groupB, { mode: modeLabel }) },
+        { tier: 'C', label: fmt(d.calc.groupC, { mode: modeLabel }) }
       ];
+      const allViews = heroesMeta.map(getHeroView);
 
       slotIds.forEach((slotId, index) => {
         const select = document.getElementById(slotId);
@@ -530,10 +650,12 @@
         tierGroups.forEach(tg => {
           const group = document.createElement('optgroup');
           group.label = tg.label;
-          heroesData.filter(h => getActiveTier(h) === tg.tier).forEach(h => {
+          allViews.filter(h => getActiveTier(h) === tg.tier).forEach(h => {
             const opt = document.createElement('option');
             opt.value = h.id;
-            opt.textContent = `${h.name} (攻:${h.attackTier}/防:${h.defenseTier} | ${h.troopName})`;
+            opt.textContent = fmt(d.calc.optFormat, {
+              name: h.name, atk: h.attackTier, def: h.defenseTier, troop: h.troopName
+            });
             group.appendChild(opt);
           });
           select.appendChild(group);
@@ -544,8 +666,10 @@
     }
 
     function calculateRally() {
+      const d = getDict();
+      const allViews = heroesMeta.map(getHeroView);
       const slots = ['slot1', 'slot2', 'slot3', 'slot4'].map(id => document.getElementById(id).value);
-      const heroObjs = slots.map(id => heroesData.find(h => h.id === id) || { id, name: id, attackTier: 'B', defenseTier: 'B', category: 'other' });
+      const heroObjs = slots.map(id => allViews.find(h => h.id === id) || { id, name: id, attackTier: 'B', defenseTier: 'B', category: 'other' });
 
       const heroCounts = {};
       slots.forEach(id => { heroCounts[id] = (heroCounts[id] || 0) + 1; });
@@ -559,10 +683,11 @@
         return t === 'S' || t === 'A';
       }).length;
       const hasPetraVivianConflict = slots.includes('petra') && slots.includes('vivian');
+      const joinSep = currentLang === 'ja' ? '・' : ', ';
+      const listSep = currentLang === 'ja' ? '、' : ', ';
       const probSelectedNames = Array.from(new Set(slots.filter(id => probabilisticHeroes.includes(id))))
-        .map(id => (heroesData.find(x => x.id === id) || { name: id }).name);
+        .map(id => (allViews.find(x => x.id === id) || { name: id }).name);
 
-      // 独立乗算レイヤー別に厳密計算（競合時は同系統の二重計上を防止、C罠は中立×1.00）
       let atkBuff = 0.0;
       let lethBuff = 0.0;
       let hpBuff = 0.0;
@@ -578,47 +703,43 @@
         const eff = isNonStack ? 1 : count;
 
         if (id === 'margot' || id === 'amane' || id === 'luna') {
-          atkBuff += 0.25 * eff; activeAxes.add('攻撃');
+          atkBuff += 0.25 * eff; activeAxes.add(d.axes.attack);
         } else if (id === 'chenko' || id === 'yeonwoo') {
-          lethBuff += 0.25 * eff; activeAxes.add('殺傷');
+          lethBuff += 0.25 * eff; activeAxes.add(d.axes.lethality);
         } else if (id === 'gordon') {
-          hpBuff += 0.25 * eff; activeAxes.add('耐久'); defenseAxes.add('HP');
+          hpBuff += 0.25 * eff; activeAxes.add(d.axes.durability); defenseAxes.add(d.axes.hp);
         } else if (id === 'saul') {
-          defBuff += 0.10 * eff; hpBuff += 0.15 * eff; activeAxes.add('耐久'); defenseAxes.add('HP/防御');
+          defBuff += 0.10 * eff; hpBuff += 0.15 * eff; activeAxes.add(d.axes.durability); defenseAxes.add(d.axes.hpDef);
         } else if (id === 'hilde') {
-          atkBuff += 0.15 * eff; defBuff += 0.10 * eff; activeAxes.add('攻撃'); activeAxes.add('耐久'); defenseAxes.add('防御');
+          atkBuff += 0.15 * eff; defBuff += 0.10 * eff; activeAxes.add(d.axes.attack); activeAxes.add(d.axes.durability); defenseAxes.add(d.axes.def);
         } else if (id === 'triton') {
-          defBuff += 0.25 * eff; activeAxes.add('耐久'); defenseAxes.add('防御');
+          defBuff += 0.25 * eff; activeAxes.add(d.axes.durability); defenseAxes.add(d.axes.def);
         } else if (id === 'fahd' || id === 'eric' || id === 'charles' || id === 'howard') {
-          // 防衛枠ハワード含め、基本1回のみ適用（二重計上防止）
-          debuffMult *= (1 / (1 - 0.20)); activeAxes.add('敵デバフ/被ダメ減'); defenseAxes.add(id === 'howard' ? '被ダメ減' : '敵弱体');
+          debuffMult *= (1 / (1 - 0.20)); activeAxes.add(d.axes.debuff); defenseAxes.add(id === 'howard' ? d.axes.dmgRed : d.axes.enemyWeak);
         } else if (id === 'ava') {
-          ampMult *= 1.25; activeAxes.add('与ダメ/防低下');
+          ampMult *= 1.25; activeAxes.add(d.axes.amp);
         } else if (id === 'petra') {
-          // 判定仕様により+25〜44%レンジのため中間目安1.35を採用（不発リスク注記併記）
-          ampMult *= 1.35; activeAxes.add('与ダメ/防低下');
+          ampMult *= 1.35; activeAxes.add(d.axes.amp);
         } else if (id === 'vivian') {
-          // ペーラ同席時は同系統の被ダメ増競合のため二重計上しない（保守側に丸める）
           if (!hasPetraVivianConflict) {
-            ampMult *= 1.20; activeAxes.add('与ダメ/防低下');
+            ampMult *= 1.20; activeAxes.add(d.axes.amp);
           }
         } else if (id === 'thrud') {
-          ampMult *= 1.20; activeAxes.add('与ダメ/防低下');
+          ampMult *= 1.20; activeAxes.add(d.axes.amp);
         } else if (id === 'yang') {
-          ampMult *= 1.25; activeAxes.add('与ダメ/防低下');
+          ampMult *= 1.25; activeAxes.add(d.axes.amp);
         } else if (id === 'rosa') {
-          ampMult *= (1 + 0.20 * eff); activeAxes.add('与ダメ/防低下');
+          ampMult *= (1 + 0.20 * eff); activeAxes.add(d.axes.amp);
         } else if (id === 'jaeger') {
-          hpBuff += 0.12 * eff; activeAxes.add('耐久'); defenseAxes.add('耐久支援');
+          hpBuff += 0.12 * eff; activeAxes.add(d.axes.durability); defenseAxes.add(d.axes.durSupport);
         } else if (id === 'quinn') {
-          atkBuff += 0.12 * eff; activeAxes.add('攻撃');
+          atkBuff += 0.12 * eff; activeAxes.add(d.axes.attack);
         } else if (id === 'alcar' || id === 'long-fei' || id === 'sophia') {
-          // 攻撃時は中立×1.00、防衛時は暫定Bの軽微耐久目安（詳細数値要実機確認）
           if (currentMode === 'defense') {
-            defBuff += 0.10; defenseAxes.add('防衛暫定');
+            defBuff += 0.10; defenseAxes.add(d.axes.defProv);
           }
         } else {
-          // zoe, jabel, helga (攻防Cランク罠英雄はプラス評価せず中立×1.00)
+          // zoe, jabel, helga (C-tier traps remain neutral x1.00)
         }
       });
 
@@ -631,65 +752,72 @@
       const breakdownText = document.getElementById('rallyBreakdownText');
       const advice = document.getElementById('rallyAdviceText');
       const probNote = probSelectedNames.length > 0
-        ? `<br><span class="text-amber-300">※確率発動スキル（${probSelectedNames.join('・')}）を含むため、倍率は期待値ベースの目安であり不発リスクがあります。</span>`
+        ? fmt(d.calc.probNote, { names: probSelectedNames.join(joinSep) })
         : '';
 
       if (currentMode === 'defense') {
-        multText.innerText = `🛡️ 耐久・弱体目安: 約 ${defenseMult.toFixed(2)}倍（総合参考: ×${totalScore.toFixed(2)}）`;
+        multText.innerText = fmt(d.calc.multDefense, { defMult: defenseMult.toFixed(2), total: totalScore.toFixed(2) });
       } else {
-        multText.innerText = `⚔️ 総合目安: 約 ${totalScore.toFixed(2)}倍 (+${Math.round((totalScore - 1) * 100)}%)`;
+        multText.innerText = fmt(d.calc.multAttack, { total: totalScore.toFixed(2), pct: Math.round((totalScore - 1) * 100) });
       }
-      breakdownText.innerText = `火力系: ×${offenseMult.toFixed(2)}（攻+${Math.round(atkBuff * 100)}% / 殺+${Math.round(lethBuff * 100)}% / 与ダメ系×${ampMult.toFixed(2)}） ｜ 耐久・敵弱体: ×${defenseMult.toFixed(2)}（HP+${Math.round(hpBuff * 100)}% / 防+${Math.round(defBuff * 100)}% / デバフ×${debuffMult.toFixed(2)}）`;
+      breakdownText.innerText = fmt(d.calc.breakdown, {
+        offMult: offenseMult.toFixed(2),
+        atk: Math.round(atkBuff * 100),
+        leth: Math.round(lethBuff * 100),
+        amp: ampMult.toFixed(2),
+        defMult: defenseMult.toFixed(2),
+        hp: Math.round(hpBuff * 100),
+        def: Math.round(defBuff * 100),
+        debuff: debuffMult.toFixed(2)
+      });
 
       if (hasPetraVivianConflict) {
         badge.className = 'bg-red-600 text-white font-black text-xs px-2.5 py-0.5 rounded shadow';
-        badge.innerText = `⚠️ ペーラ＋ヴィヴィアン競合リスク（同系統被ダメ増）`;
-        advice.innerHTML = `<span class="text-red-400 font-bold">要注意！</span> 海外コミュニティ（Reddit等）の実戦検証では、ペーラ（ペトラ）とヴィヴィアンを同席させると同系統の「敵被ダメージ増加」が干渉・上書きされ、ダメージが大きく落ちる報告が多数あります（※公式未公表・計算機では二重計上を除外しています）。ペーラ採用時はヴィヴィアンを外し、確定バフへ変更推奨です。${probNote}`;
+        badge.innerText = d.calc.badgeConflict;
+        advice.innerHTML = d.calc.adviceConflict + probNote;
       } else if (nonStackingDuplicates.length > 0) {
-        const badNames = nonStackingDuplicates.map(id => (heroesData.find(x => x.id === id) || { name: id }).name).join('、');
+        const badNames = nonStackingDuplicates.map(id => (allViews.find(x => x.id === id) || { name: id }).name).join(listSep);
         badge.className = 'bg-red-600 text-white font-black text-xs px-2.5 py-0.5 rounded shadow';
-        badge.innerText = `⚠️ 重複非推奨英雄（${badNames}）が被り！`;
-        advice.innerHTML = `<span class="text-red-400 font-bold">要変更！</span> 「${badNames}」は同一ラリー内で重複加算されないとの実戦報告が多い枠（または重複未検証枠）です（※公式未公表）。同盟内で1人のみ編成し、空いた枠は他系統へ変更してください！${probNote}`;
+        badge.innerText = fmt(d.calc.badgeNonStackDup, { names: badNames });
+        advice.innerHTML = fmt(d.calc.adviceNonStackDup, { names: badNames }) + probNote;
       } else if (cTierHeroes.length > 0) {
-        const cNames = cTierHeroes.map(h => h.name).join('、');
+        const cNames = cTierHeroes.map(h => h.name).join(listSep);
         badge.className = 'bg-red-500 text-white font-black text-xs px-2.5 py-0.5 rounded shadow';
-        badge.innerText = currentMode === 'defense'
-          ? `⚠️ 防衛Cランク不適英雄（${cNames}）混入`
-          : `⚠️ 攻撃Cランク注意英雄（${cNames}）混入`;
-        advice.innerHTML = currentMode === 'defense'
-          ? `<span class="text-red-300 font-bold">防衛不適！</span> 選択された「${cNames}」は駐屯防衛では耐久寄与が乏しいか確率不安定のため4枠を圧迫します。ゴードン・ハワード・エリック・ファハド・サウル等の防衛S/A枠への変更を推奨します。${probNote}`
-          : `<span class="text-red-300 font-bold">要注意！</span> 選択された「${cNames}」は低確率・開幕不発・個人防衛寄りのため、攻撃集結の貴重な4枠を圧迫します（計算機では中立×1.00扱い）。S/Aランクの確定バフ・希少デバフ英雄への変更を推奨します。${probNote}`;
+        badge.innerText = fmt(currentMode === 'defense' ? d.calc.badgeDefC : d.calc.badgeAtkC, { names: cNames });
+        advice.innerHTML = fmt(currentMode === 'defense' ? d.calc.adviceDefC : d.calc.adviceAtkC, { names: cNames }) + probNote;
       } else if (currentMode === 'defense') {
         if (defenseAxes.size >= 2 && sOrACount >= 3) {
           badge.className = 'bg-cyan-400 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded shadow';
-          badge.innerText = `🏰 理想の駐屯防衛編成（耐久${defenseAxes.size}系統）`;
-          advice.innerHTML = `駐屯防衛S/A枠を中心に「${Array.from(defenseAxes).join(' × ')}」の耐久・敵弱体が綺麗に噛み合っています！敵騎兵対策として兵種比率（汎用6:2:2／王城・要塞戦6:4:0や7:3:0等）もあわせて調整しましょう（※ゴードン重複上限・ハワード重複可否は要実機確認）。${probNote}`;
+          badge.innerText = fmt(d.calc.badgeDefIdeal, { count: defenseAxes.size });
+          advice.innerHTML = fmt(d.calc.adviceDefIdeal, { axes: Array.from(defenseAxes).join(' × ') }) + probNote;
         } else {
           badge.className = 'bg-sky-500 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded shadow';
-          badge.innerText = `🛡️ 駐屯防衛バランス（耐久の伸びしろあり）`;
-          advice.innerHTML = `防衛C枠はありませんが、反撃火力寄りのB枠が多めです。被損を抑えるならゴードン・ハワード・エリック・ファハド・トリトン・チャールズ等の防衛S枠を3〜4枠揃えるのが鉄則です。${probNote}`;
+          badge.innerText = d.calc.badgeDefBal;
+          advice.innerHTML = d.calc.adviceDefBal + probNote;
         }
       } else if (stackingDuplicates.length > 0) {
-        const stackNames = stackingDuplicates.map(id => (heroesData.find(x => x.id === id) || { name: id }).name).join('、');
+        const stackNames = stackingDuplicates.map(id => (allViews.find(x => x.id === id) || { name: id }).name).join(listSep);
         badge.className = 'bg-emerald-500 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded shadow';
-        badge.innerText = `✨ 安定の加算スタック編成（${activeAxes.size}軸）`;
-        advice.innerHTML = `「${stackNames}」が被っていますが、加算スタック有効とされるスキルのため無駄になりにくい構成です！さらに伸ばすなら、異なる系統（攻撃・殺傷・敵デバフ・耐久）を3軸以上揃えると乗算効率が高まります。${probNote}`;
+        badge.innerText = fmt(d.calc.badgeStackDup, { count: activeAxes.size });
+        advice.innerHTML = fmt(d.calc.adviceStackDup, { names: stackNames }) + probNote;
       } else if (activeAxes.size >= 3 && sOrACount >= 3) {
         badge.className = 'bg-yellow-500 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded shadow';
-        badge.innerText = `🌈 理想のバランス編成（${activeAxes.size}軸の多層乗算）`;
-        advice.innerHTML = `重複ゼロかつ「${Array.from(activeAxes).join(' × ')}」の${activeAxes.size}系統が別枠乗算で噛み合っています！無課金〜上位勢まで格上戦でも戦える黄金比率です！（※ペーラ主導ラリーの場合は乗り手ペーラを外し確定バフへ調整してください）${probNote}`;
+        badge.innerText = fmt(d.calc.badgeAtkIdeal, { count: activeAxes.size });
+        advice.innerHTML = fmt(d.calc.adviceAtkIdeal, { axes: Array.from(activeAxes).join(' × '), count: activeAxes.size }) + probNote;
       } else {
         badge.className = 'bg-cyan-500 text-slate-950 font-black text-xs px-2.5 py-0.5 rounded shadow';
-        badge.innerText = `👍 実用バランス編成（乗算の伸びしろあり）`;
-        advice.innerHTML = `重複や地雷英雄はありませんが、系統が「${Array.from(activeAxes).join(' / ') || '偏り'}」に寄っているか、Bランク中心の構成です。S/Aランクで攻撃・殺傷・敵デバフ・耐久を3系統以上揃えるとさらに実効値が伸びます！${probNote}`;
+        badge.innerText = d.calc.badgeAtkBal;
+        advice.innerHTML = fmt(d.calc.adviceAtkBal, { axes: Array.from(activeAxes).join(' / ') || d.calc.biasFallback }) + probNote;
       }
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      currentLang = detectInitialLang();
+      applyStaticTranslations();
       renderHeroes();
       populateSlots();
       calculateRally();
-      lucide.createIcons();
+      if (typeof lucide !== 'undefined') lucide.createIcons();
     });
   </script>
 </body>
